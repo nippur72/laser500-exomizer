@@ -103,10 +103,14 @@ console.log("virtual Z80 cpu prepared with 64K empty RAM");
 let deexo = { start: 0xF500 };
 
 if(backward) {
-   deexo.bytes = load("deexo_b_F500.bin", deexo.start);
+   const deexoBackward = require("./deexo_b_F500");
+   deexo.bytes = deexoBackward;
+   load(deexoBackward, deexo.start);   
    console.log("using backward compression");
 } else {   
-   deexo.bytes = load("deexo_F500.bin", deexo.start);
+   const deexoForward = require("./deexo_F500");
+   deexo.bytes = deexoForward; 
+   load(deexoForward, deexo.start);   
    console.log("using normal forward compression");
 }
 
@@ -202,7 +206,7 @@ else console.log("deexo OK, original uncompressed file is identical with decompr
 // ********************** UTILITY FUNCTIONS **********************
 
 function load(filename, start) {   
-   const bytes = fs.readFileSync(filename);
+   const bytes = typeof filename == 'string' ? fs.readFileSync(filename) : filename;
    
    const end = start + bytes.length - 1;
 

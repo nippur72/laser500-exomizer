@@ -188,18 +188,19 @@ start_of_relocate:
       ; file "generic"
 fix_address_1:      
       ld hl, GENERIC_DATA_END              ; pointer to end of source data block in memory
-      ld de, GENERIC_RELOCATED_DATA_END    ; pointer to end of moved source data block in memory (bottom of mem)
 fix_address_2:      
+      ld de, GENERIC_RELOCATED_DATA_END    ; pointer to end of moved source data block in memory (bottom of mem)
+fix_address_3:      
       ld bc, GENERIC_DATA_SIZE + 1         ; exomized file length +1
       lddr                                 ; relocate at bottom of memory in order to give enough safety offset space
 
-fix_address_3:      
+fix_address_4:      
       ld hl, GENERIC_RELOCATED_DATA_END - GENERIC_DATA_SIZE   
       ld de, 0x8995             
       call deexo                
 
       ; set basic pointers   
-fix_address_4:      
+fix_address_5:      
       ld hl, GENERIC_BASIC_POINTER
       ld (0x83e9), hl
    ENDIF      

@@ -37,19 +37,21 @@ const data = fs.readFileSync(fileName);
 const GENERIC_DATA_SIZE          = data.length;
 const GENERIC_DATA_START         = 0x8995 + 0x00FE; // from stub.sym
 const GENERIC_DATA_END           = GENERIC_DATA_START + GENERIC_DATA_SIZE - 1;
-const GENERIC_RELOCATED_DATA_END = 0xF100;
+const GENERIC_RELOCATED_DATA_END = 0xF4D3 - 1; // relocated_address - 1, get it from stub.sym
 const GENERIC_BASIC_POINTER      = vartab;
 
-const fix_address_1 = 0x0028 + 1;
-const fix_address_2 = 0x002E + 1;
-const fix_address_3 = 0x0033 + 1;
-const fix_address_4 = 0x003C + 1;
+const fix_address_1 = 0x0028 +1;
+const fix_address_2 = 0x002B +1;
+const fix_address_3 = 0x002E +1;
+const fix_address_4 = 0x0033 +1;
+const fix_address_5 = 0x003C +1;
 
 // patches stub.bin
 write_word(stub, fix_address_1, GENERIC_DATA_END);
-write_word(stub, fix_address_2, GENERIC_DATA_SIZE);
-write_word(stub, fix_address_3, GENERIC_RELOCATED_DATA_END - GENERIC_DATA_SIZE + 1);
-write_word(stub, fix_address_4, GENERIC_BASIC_POINTER);
+write_word(stub, fix_address_2, GENERIC_RELOCATED_DATA_END);
+write_word(stub, fix_address_3, GENERIC_DATA_SIZE);
+write_word(stub, fix_address_4, GENERIC_RELOCATED_DATA_END - GENERIC_DATA_SIZE + 1);
+write_word(stub, fix_address_5, GENERIC_BASIC_POINTER);
 
 const joined = mergeArray(stub, data);
 

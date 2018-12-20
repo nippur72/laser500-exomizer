@@ -1,15 +1,18 @@
 {
   "name": "laser500-exomizer",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "exolaser.js",
+  "bin": {
+    "exolaser": "./exolaser.js",
+    "test_deexo": "./test_deexo.js"
+  },  
   "dependencies": {
     "command-line-args": "^5.0.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "makestub": "node bin2js -i stub.bin -o stub.js -n stub"
+    "build": "call cc.bat"
   },
   "author": "",
   "license": "MIT"

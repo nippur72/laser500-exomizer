@@ -1,0 +1,9 @@
+*.dat
+*.bin
+*.lis
+*.sym
+*.o
+exomizer*.zip
+exomizer.exe
+
+

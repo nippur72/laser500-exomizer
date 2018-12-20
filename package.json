@@ -1,0 +1,16 @@
+{
+  "name": "laser500-exomizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exolaser.js",
+  "dependencies": {
+    "command-line-args": "^5.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "makestub": "node bin2js -i stub.bin -o stub.js -n stub"
+  },
+  "author": "",
+  "license": "MIT"
+}

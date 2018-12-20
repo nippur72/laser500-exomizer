@@ -39,7 +39,7 @@ It runs the deexo routine in a simulated Z80 environment using the given paramet
 
 Example
 ```
-test_deexo.js -o amsterd.bin 8995 -c amsterd.exo.dat e400
+test_deexo -o amsterd.bin 8995 -c amsterd.exo.dat e400
 ```
 
 - `amsterd.bin` is the original uncompressed file

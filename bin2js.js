@@ -2,7 +2,7 @@ const fs = require("fs");
 const commandLineArgs = require('command-line-args')
 
 const options = parseOptions([
-   { name: 'input',      alias: 'i', type: String, defaultOption: true },
+   { name: 'input',      alias: 'i', type: String },
    { name: 'output',     alias: 'o', type: String },
    { name: 'varname',    alias: 'n', type: String },
 ]);
